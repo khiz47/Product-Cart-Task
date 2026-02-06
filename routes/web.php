@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\Admin\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,15 +22,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/admin/login', [AuthController::class, 'loginForm'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'login']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+    Route::resource('/admin/products', ProductController::class);
+    Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
+    Route::get('/admin/cart', [CartController::class, 'index'])
+        ->name('admin.cart.index');
+    Route::get('/admin/orders', [OrderController::class, 'index'])
+        ->name('admin.orders.index');
 
-require __DIR__ . '/auth.php';
+    Route::get('/admin/orders/{id}', [OrderController::class, 'show'])
+        ->name('admin.orders.show');
+});
