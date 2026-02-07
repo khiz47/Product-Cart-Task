@@ -239,15 +239,15 @@ CVC: Any 3 digits
 
 ### ✅ Task Requirements Covered
 
-✔ Relational DB design
-✔ Product CRUD with multiple images
-✔ Admin CMS with clean UI
-✔ Cart APIs (Add, Update, Delete, List)
-✔ Cart visible in backend
-✔ Order listing & order detail pages
-✔ Checkout API with payment gateway
-✔ API documentation via Postman
-✔ Clean, maintainable code
+- ✔ Relational DB design
+- ✔ Product CRUD with multiple images
+- ✔ Admin CMS with clean UI
+- ✔ Cart APIs (Add, Update, Delete, List)
+- ✔ Cart visible in backend
+- ✔ Order listing & order detail pages
+- ✔ Checkout API with payment gateway
+- ✔ API documentation via Postman
+- ✔ Clean, maintainable code
 
 ### 👤 Author
 
