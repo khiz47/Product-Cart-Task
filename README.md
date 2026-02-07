@@ -216,13 +216,7 @@ php artisan serve
 ```
 Now Go in Postman and check API of Test Checkout
 
-🧪 Stripe Test Card
-
-```bash
-Card Number: 4242 4242 4242 4242
-Expiry: Any future date
-CVC: Any 3 digits
-```
+> Stripe integration is implemented in **test mode** using Payment Intents.
 
 ### 📬 Postman Collection
 
