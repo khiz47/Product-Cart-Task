@@ -57,23 +57,6 @@ A Laravel-based backend application with **Admin CMS**, **Product Management**, 
 
 ---
 
-## 📂 Project Structure (Simplified)
-
-app/
-├── Http/Controllers/
-│ ├── Admin/
-│ └── Api/
-├── Models/
-routes/
-├── web.php
-└── api.php
-resources/views/
-├── layouts/admin.blade.php
-└── admin/
-database/migrations/
-
----
-
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone Repository
