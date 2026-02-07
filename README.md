@@ -214,6 +214,7 @@ php artisan config:clear
 php artisan cache:clear
 php artisan serve
 ```
+Now Go in Postman and check API of Test Checkout
 
 🧪 Stripe Test Card
 
