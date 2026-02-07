@@ -1,66 +1,273 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 Product Cart Management System (Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-based backend application with **Admin CMS**, **Product Management**, **Cart APIs**, and **Checkout API (Stripe Test Mode)** built as part of a technical evaluation task.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### ✅ Admin CMS (AdminLTE)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Admin login
+- Dashboard with statistics:
+    - Total Products
+    - Total Orders
+    - Total Revenue
+- Product CRUD
+    - Add product with **multiple images**
+    - Edit / Delete product
+- Cart listing in admin panel
+- Order management
+    - Order listing page
+    - Order detail (view order) page
+- Clean, responsive AdminLTE UI
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### ✅ APIs
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Product listing API
+- Cart APIs:
+    - Add to cart
+    - Update cart item
+    - Delete cart item
+    - Cart listing with totals
+- Checkout API with **Stripe Payment Intent (Test Mode)**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+### ✅ Technical Highlights
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Laravel MVC architecture
+- Relational MySQL database
+- Eloquent relationships
+- API versioning (`/api/v1`)
+- Exception handling
+- Postman-testable APIs
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 🛠 Tech Stack
 
-## Contributing
+- **PHP**: >= 8.1
+- **Framework**: Laravel 10
+- **Database**: MySQL 8
+- **Admin UI**: AdminLTE (CDN)
+- **Payment Gateway**: Stripe (Test Mode)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📂 Project Structure (Simplified)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+app/
+├── Http/Controllers/
+│ ├── Admin/
+│ └── Api/
+├── Models/
+routes/
+├── web.php
+└── api.php
+resources/views/
+├── layouts/admin.blade.php
+└── admin/
+database/migrations/
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## ⚙️ Installation & Setup
 
-## License
+### 1️⃣ Clone Repository
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone <your-github-repo-url>
+
+cd product-cart-task
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+composer install
+```
+
+### 3️⃣ Environment Configuration
+
+Create .env file:
+
+```bash
+cp .env.example .env
+```
+
+Update database credentials in .env:
+
+```bash
+DB_DATABASE=product_cart_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 4️⃣ Generate App Key
+
+```bash
+php artisan key:generate
+```
+
+### 5️⃣ Run Migrations
+
+```bash
+php artisan migrate
+```
+
+### 6️⃣ Storage Link (For Product Images)
+
+```bash
+php artisan storage:link
+```
+
+### 7️⃣ Create Admin User (One Time)
+
+```bash
+php artisan tinker
+```
+
+```bash
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+User::create([
+    'name' => 'Admin',
+    'email' => 'admin@test.com',
+    'password' => Hash::make('password123'),
+]);
+
+```
+
+### 8️⃣ Start Server
+
+```bash
+php artisan serve
+```
+
+Application URL Something like this:
+
+```bash
+http://127.0.0.1:8000
+```
+
+🔐 Admin Access Login URL" /admin/login".
+
+```bash
+http://127.0.0.1:8000/admin/login
+```
+
+Credentials:
+
+```bash
+Email: admin@test.com
+Password: password123
+```
+
+### 🌐 API Endpoints (v1)
+
+Base URL:
+
+```bash
+http://127.0.0.1:8000/api/v1
+```
+
+### 📦 Products API
+
+| Method | Endpoint    | Description                  |
+| ------ | ----------- | ---------------------------- |
+| GET    | `/products` | Get all products with images |
+
+### 🛒 Cart APIs
+
+| Method | Endpoint            | Description               |
+| ------ | ------------------- | ------------------------- |
+| POST   | `/cart/add`         | Add product to cart       |
+| PUT    | `/cart/update`      | Update cart item quantity |
+| DELETE | `/cart/remove/{id}` | Remove cart item          |
+| GET    | `/cart`             | Cart listing with totals  |
+
+### Add to Cart Payload
+
+```bash
+{
+  "product_id": 1,
+  "quantity": 2
+}
+```
+
+### 💳 Checkout API (Stripe Test Mode)
+
+| Method | Endpoint    |
+| ------ | ----------- |
+| POST   | `/checkout` |
+
+### 💳 Stripe Setup (Test Mode):
+
+Add Stripe keys in .env:
+
+```bash
+STRIPE_KEY=pk_test_xxxxxxxxxxxxx
+STRIPE_SECRET=sk_test_xxxxxxxxxxxxx
+```
+
+Update config/services.php:
+
+```bash
+'stripe' => [
+    'key' => env('STRIPE_KEY'),
+    'secret' => env('STRIPE_SECRET'),
+],
+```
+
+Clear config cache:
+
+```bash
+php artisan config:clear
+php artisan cache:clear
+php artisan serve
+```
+
+🧪 Stripe Test Card
+
+```bash
+Card Number: 4242 4242 4242 4242
+Expiry: Any future date
+CVC: Any 3 digits
+```
+
+### 📬 Postman Collection
+
+- All APIs are tested via Postman
+- A Postman collection (.json) is included in the repository
+
+### 🗄 Database Backup
+
+- A MySQL .sql dump file is included for easy setup
+
+### 🧾 Notes
+
+- User ID is hardcoded to 1 for cart and checkout (as per task).
+- Payment is implemented in test mode only.
+- No frontend store UI is included (API-focused backend task).
+
+### ✅ Task Requirements Covered
+
+- ✔ Relational DB design
+- ✔ Product CRUD with multiple images
+- ✔ Admin CMS with clean UI
+- ✔ Cart APIs (Add, Update, Delete, List)
+- ✔ Cart visible in backend
+- ✔ Order listing & order detail pages
+- ✔ Checkout API with payment gateway
+- ✔ API documentation via Postman
+- ✔ Clean, maintainable code
+
+### 👤 Author
+
+Khizer Qureshi
+Senior PHP Developer
+(Technical Assignment Submission)
