@@ -66,6 +66,7 @@ git clone <your-github-repo-url>
 
 cd product-cart-task
 ```
+- Import Database from DB_Backup_File Folder
 
 ### 2️⃣ Install Dependencies
 
@@ -150,7 +151,7 @@ Email: admin@test.com
 Password: password123
 ```
 
-### 🌐 API Endpoints (v1)
+### 🌐 API Endpoints (v1) use Postman import file from postman folder.
 
 Base URL:
 
